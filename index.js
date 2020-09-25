@@ -36,7 +36,11 @@ for (i = 0; i < count ; i++) {
     }
 }
 console.log(result);
-
+app.hears('supp?', ctx => {
+    return ctx.reply(result);
+  });
+  
+  app.startPolling();
 
 
 

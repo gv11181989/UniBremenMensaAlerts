@@ -1,5 +1,8 @@
 const https = require("https");
+const Telegraf = require('telegraf');
 const url = "https://api.mensa.legacymo.de/0";
+const config = require('./config.json');
+const app = new Telegraf(config.bot_token);
 
 https.get(url, res => {
   res.setEncoding("utf8");

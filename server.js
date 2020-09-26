@@ -62,7 +62,7 @@ bot.hears('?', ctx => {
 
 
     checkTime = new Date(); // Date object to find out what time it is
-      if(checkTime.getHours() === 22 /*&& date.getMinutes() === 0*/){ // Check the time
+      if(checkTime.getHours() === 23 /*&& date.getMinutes() === 0*/){ // Check the time
              // Code
   bot.telegram.sendMessage('@UniBMensaMenu', finalMessage);
   console.log(new Date().getHours());
@@ -74,7 +74,7 @@ message = "";
  
 });
 });
-},10000); // Repeat every day
+},45000);
 
 
 

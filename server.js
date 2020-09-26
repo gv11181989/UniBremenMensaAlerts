@@ -9,10 +9,6 @@ var message = "";
 var checkTime = "";
 
 setInterval(function(){ // Set interval for checking
-    checkTime = new Date(); // Date object to find out what time it is
-      if(checkTime.getHours() === 5 /*&& date.getMinutes() === 0*/){ // Check the time
-             // Code
-
 https.get(url, res => {
   res.setEncoding("utf8");
   let body = "";
@@ -59,20 +55,27 @@ var finalMessage = messageDate+message;
 console.log(finalMessage);
 
 //****Telegram bot start*****
-bot.hears('Supp?', ctx => {
+bot.hears('?', ctx => {
     return ctx.reply(finalMessage);
     
   });
+
+
+    checkTime = new Date(); // Date object to find out what time it is
+      if(checkTime.getHours() === 22 /*&& date.getMinutes() === 0*/){ // Check the time
+             // Code
   bot.telegram.sendMessage('@UniBMensaMenu', finalMessage);
-  bot.startPolling();
+  console.log(new Date().getHours());
+}
+bot.startPolling();
+console.log(new Date().getHours());
 //****Telegram bot end*****
 message = "";
  
 });
 });
+},10000); // Repeat every day
 
 
-}
-},3600010); // Repeat every day
 
-console.log(new Date().getHours());
+

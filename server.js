@@ -10,7 +10,7 @@ var checkTime = "";
 
 setInterval(function(){ // Set interval for checking
     checkTime = new Date(); // Date object to find out what time it is
-      if(checkTime.getHours() === 15 /*&& date.getMinutes() === 0*/){ // Check the time
+      if(checkTime.getHours() === 7 /*&& date.getMinutes() === 0*/){ // Check the time
              // Code
 
 https.get(url, res => {

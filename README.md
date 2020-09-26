@@ -1,5 +1,5 @@
 # UniBremenMensaAlerts
-
+## API Used
 Uni Bremen Mensa API by https://github.com/StevenKowalzik/
 API link - https://api.mensa.legacymo.de/
 

@@ -73,6 +73,10 @@ message = "";
 
 
 }
+<<<<<<< HEAD
 },3600010); // Repeat every day
+=======
+},3600010); // Repeat every 60000 milliseconds (1 minute)
+>>>>>>> 1b6bb635fdf9855e9e8173497da19a8cd4fd3c59
 
 console.log(new Date().getHours());

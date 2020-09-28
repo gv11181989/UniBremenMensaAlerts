@@ -43,7 +43,9 @@ for (i = 0; i < count ; i++) {
     }
 }
 
-if (date === new Date().getDate()){
+var dateNumber = date.replace(/\D/g, '');
+
+if (dateNumber === new Date().getDate().toString()){
     messageDate = "Heutiges Angebot";
 }
 else {
@@ -62,19 +64,19 @@ bot.hears('?', ctx => {
 
 
     checkTime = new Date(); // Date object to find out what time it is
-      if(checkTime.getHours() === 5 && date.getMinutes() === 0){ // Check the time
+      if(checkTime.getHours() === 5 && checkTime.getMinutes() === 0){ // Check the time
              // Code
   bot.telegram.sendMessage('@UniBMensaMenu', finalMessage);
   console.log(new Date().getHours());
 }
 bot.startPolling();
-console.log(new Date().getHours());
+console.log(dateNumber);
 //****Telegram bot end*****
 message = "";
  
 });
 });
-},45000);
+},60000);
 
 
 

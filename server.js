@@ -5,17 +5,21 @@ const config = require('./config.json');
 const bot = new Telegraf(config.bot_token);
 const emoji = require('node-emoji');
 const noIdea = emoji.get('woman-shrugging');
+const runEmoji = emoji.get('woman-running');
+const nerd = emoji.get('nerd_face');
 var message = "";
 var checkTime = "";
+var finalMessage ="";
 
 setInterval(function(){ // Set interval for checking
-https.get(url, res => {
+https.get(url, res => {  
   res.setEncoding("utf8");
   let body = "";
   res.on("data", data => {
     body += data;
   });
   res.on("end", () => {
+    try {
     body = JSON.parse(body);
     var count = Object.keys(body.food).length;
     var i = 0;
@@ -53,30 +57,40 @@ else {
 }
 
 
-var finalMessage = messageDate+message;
+ finalMessage = messageDate+message;
 console.log(finalMessage);
+    }
+    catch (e) {
+      console.log("error");
+      finalMessage = "Sorry, can't reach the menu today.The resident nerd" +nerd+ "is looking into this issue" +runEmoji;
+    }
+
+ 
+});
+
+}).on("error", ()=> {
+  console.log("Sorry can't reach the menu today")
+  finalMessage = "Sorry, can't reach the menu today.The resident nerd " +nerd+ " is looking into this issue " +runEmoji;
+  
+});
 
 //****Telegram bot start*****
 bot.hears('?', ctx => {
-    return ctx.reply(finalMessage);
-    
-  });
+  return ctx.reply(finalMessage);
+  
+});
 
-
-    checkTime = new Date(); // Date object to find out what time it is
-      if(checkTime.getHours() === 5 && checkTime.getMinutes() === 0){ // Check the time
-             // Code
-  bot.telegram.sendMessage('@UniBMensaMenu', finalMessage);
-  console.log(new Date().getHours());
+  checkTime = new Date(); // Date object to find out what time it is
+    if(checkTime.getHours() === 5 && checkTime.getMinutes() === 0){ // Check the time
+           // Code
+bot.telegram.sendMessage('@UniBMensaMenu', finalMessage);
+console.log(new Date().getHours());
 }
 bot.startPolling();
-console.log(dateNumber);
 //****Telegram bot end*****
+
 message = "";
- 
-});
-});
-},60000);
+},10000);
 
 
 

@@ -90,7 +90,7 @@ bot.startPolling();
 //****Telegram bot end*****
 
 message = "";
-},10000);
+},60000);
 
 
 

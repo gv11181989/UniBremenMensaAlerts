@@ -49,7 +49,7 @@ for (i = 0; i < count ; i++) {
 
 var dateNumber = date.replace(/\D/g, '');
 
-if (dateNumber === new Date().getDate().toString()){
+if (Number(dateNumber) === new Date().getDate()){
     messageDate = "Heutiges Angebot";
 }
 else {

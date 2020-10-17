@@ -13,12 +13,11 @@ var finalMessage ="";
 console.log("App running");
 
 // Scraper code start
-
+setInterval(function(){ // Set interval for checking     
 const cheerio = require('cheerio'),
- axios = require('axios'),
+ axios = require('axios'), 
  scraperurl = 'https://www.stw-bremen.de/de/mensa/uni-mensa';
- var mealArray = [];
-      
+ var mealArray = []; 
 axios.get(scraperurl)
     .then((response) => {
 // Load the HTML code as a string, which returns a Cheerio instance
@@ -48,7 +47,7 @@ for (i=0 ; i < count ; i++ ){
 console.log(mealArray);
 
 
-setInterval(function(){ // Set interval for checking
+
   https.get(url, res => {  
     res.setEncoding("utf8");
     let body = "";
@@ -128,13 +127,14 @@ setInterval(function(){ // Set interval for checking
   //****Telegram bot end*****
   
   message = "";
-  },60000);
+  
 
 
 }).catch(function (e) {
   console.log(e);
 });
 
+},60000);
 //Scraper code finish
 
 

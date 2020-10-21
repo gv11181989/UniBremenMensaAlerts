@@ -127,8 +127,6 @@ console.log(mealArray);
   //****Telegram bot end*****
   
   message = "";
-  
-
 
 }).catch(function (e) {
   console.log(e);

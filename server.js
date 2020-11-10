@@ -117,7 +117,7 @@ setInterval(() => {
   });
 
   checkTime = new Date(); // Date object to find out what time it is
-  if (checkTime.getHours() === 7 && checkTime.getMinutes() === 37) { // Check the time
+  if (checkTime.getHours() === 6 && checkTime.getMinutes() === 0) { // Check the time
 
     bot.telegram.sendMessage('@UniBMensaMenu', finalMessage);
     console.log(new Date().getHours());
@@ -126,5 +126,5 @@ setInterval(() => {
   //****Telegram bot end*****  
   message = "";
 
-  }, 10000);
+  }, 60000);
 

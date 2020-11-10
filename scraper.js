@@ -28,7 +28,7 @@ var scraper = axios.get(scraperurl).then(function (response) {
     };
     mealArray.push(meal);
   }
-  // console.log(mealArray);
+  console.log(mealArray);
   return mealArray;     
   });
   exports.toServerjs = scraper;
